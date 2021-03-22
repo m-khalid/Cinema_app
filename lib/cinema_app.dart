@@ -8,6 +8,8 @@ import 'Home.dart';
 import 'login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'dart:async';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 
 
 class CinemaApp extends StatefulWidget  {
@@ -24,17 +26,19 @@ class ReservePageState extends State<CinemaApp> {
    String movieId,movieTitle;
   ReservePageState(this.movieId,this.movieTitle);
 
+Color x=Colors.green[700];
+
 
 
     @override
   void initState() {
     super.initState();
-  }
+  } 
   Color chiarColor(ReserveState reserveState) {
     if (reserveState == ReserveState.reserved) {
       return Colors.grey;
     } else if (reserveState == ReserveState.selected) {
-      return Colors.green[700];
+      return x;
     }else if (reserveState == ReserveState.notavailable) {
       return Colors.grey[700];
     }
@@ -347,19 +351,15 @@ class ReservePageState extends State<CinemaApp> {
                 ),
               ),
 
-              Container(
-  
-                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                  decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(32)),
-                  child: Center(
-                    child: Text(
-                      "CHECKOUT",
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black,
-                      ),
-                    ),
-                  )),
+                            RaisedButton(
+                  color: Colors.red[500],
+                  child: Text('Checkout',style: TextStyle(fontSize: 20,color: Colors.white),),
+                  onPressed: ()  {
+setState(() {
+  x=Colors.grey;
+});
+                  },
+                ),
             ],
           ),
         );

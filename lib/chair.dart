@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 enum ReserveState { available, reserved, selected ,notavailable}
 
 class Chair {
@@ -50,7 +52,7 @@ List<Chair> chairRow3 = [
   Chair(3, 10, reserveState: ReserveState.available),
   Chair(3, 11, reserveState: ReserveState.available),
 ];
-List<Chair> chairRow4 = [
+List<Chair> chairRow4 = [ 
   Chair(4, 1, reserveState: ReserveState.available),
   Chair(4, 2, reserveState: ReserveState.available),
   Chair(4, 3, reserveState: ReserveState.available),
